@@ -1,0 +1,10 @@
+.App{
+    @apply  h-screen border-[#FF4D4E] border-t-[5px] overflow-y-hidden;
+}
+.App .container{
+    @apply w-[80%] mx-auto  h-screen;
+}
+.filter-container{
+    @apply flex items-center mt-12 space-x-10;
+}
+

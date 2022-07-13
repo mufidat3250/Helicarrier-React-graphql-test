@@ -1,0 +1,18 @@
+.InputWrapper{
+    @apply flex w-[60%] bg-white items-center rounded-[30px];
+    box-shadow: 0 0 1rem 0.5rem rgb(0 0 0 / 12%);
+
+    .input{
+        @apply outline-none border-none bg-transparent  text-lg px-4 flex-grow;
+        
+    }
+    .input-container{
+        @apply px-4 flex-grow flex;
+    }
+    .search-icon{
+        @apply p-4 bg-white w-[10%] grid place-items-center;
+        border-top-right-radius: 2.5rem;
+        border-bottom-right-radius: 2.5rem;
+        
+    }
+}
