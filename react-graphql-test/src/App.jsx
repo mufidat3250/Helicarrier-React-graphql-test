@@ -8,16 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import AnimeMovies from "./atoms/AnimeMovies/AnimeMovies";
 import Select from "./atoms/Select";
 import { filterByGenre, filterByYear } from "./Store/filterReducer";
-import ParseDate from "./utils/utils";
-import AllAnime from "../src/service/AllAnime";
 
 function App() {
   const dispatch = useDispatch();
-
-  // console.log(date, "date");
   const genres = useSelector(({ AllAnime }) =>
     AllAnime.reduce((acc, { genres }) => {
-      // console.log(genres, "before mapping");
       const checkArr = genres.map((value) => {
         if (acc.indexOf(value) === -1) {
           acc.push(value);
@@ -31,12 +26,12 @@ function App() {
       .filter((year, i, arr) => arr.indexOf(year) === i)
       .sort((a, b) => a - b)
   );
-  console.log({ years });
 
   const fetchAnimePage = async () => {
     try {
       const animePage = await AnimeService.getAnimePage();
-      dispatch(allAnime(animePage.Page.media));
+      if (!animePage) {
+      }
     } catch (error) {
       console.log(error.message);
     }

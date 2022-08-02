@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ParseDate from "../../utils/utils";
 import AnimeCard from "../AnimeCard/AnimeCard";
 
 const AnimeMovies = ({ date }) => {
@@ -8,15 +7,13 @@ const AnimeMovies = ({ date }) => {
     ({ AllAnime, filter: { year, search, genre } }) =>
       AllAnime.filter(({ seasonYear, title: { romaji }, genres }) => {
         console.log(genres);
-        return (
-          Number(year)
-            ? seasonYear === date && seasonYear === Number(year)
-            : search
-            ? romaji.toLowerCase().includes(search.toLowerCase())
-            : genre
-            ? genres.includes(genre)
-            : seasonYear === date
-        );
+        return Number(year)
+          ? seasonYear === date && seasonYear === Number(year)
+          : search
+          ? romaji.toLowerCase().includes(search.toLowerCase())
+          : genre
+          ? genres.includes(genre)
+          : seasonYear === date;
       })
   );
 
@@ -26,7 +23,7 @@ const AnimeMovies = ({ date }) => {
       {AnimeData.length !== 0 && (
         <>
           {AnimeData.length !== 0 && (
-            <h1 className="bg-[#FF4D4E] text-white py-4 font-[500] text-[24px] pl-3">
+            <h1 className="bg-[#FF4D4E] text-white py-2 font-[500] text-[16px] pl-3">
               {date}
             </h1>
           )}
