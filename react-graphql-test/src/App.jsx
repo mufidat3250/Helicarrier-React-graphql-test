@@ -30,8 +30,7 @@ function App() {
   const fetchAnimePage = async () => {
     try {
       const animePage = await AnimeService.getAnimePage();
-      if (!animePage) {
-      }
+      dispatch(allAnime(animePage.Page.media));
     } catch (error) {
       console.log(error.message);
     }
