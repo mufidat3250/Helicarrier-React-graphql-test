@@ -7,7 +7,6 @@ const AnimeMovies = ({ date }) => {
   const AnimeData = useSelector(
     ({ AllAnime, filter: { year, search, genre } }) =>
       AllAnime.filter(({ seasonYear, title: { romaji }, genres }) => {
-        console.log(genres);
         return Number(year)
           ? seasonYear === date && seasonYear === Number(year)
           : search

@@ -26,6 +26,10 @@ function App() {
       return acc;
     }, [])
   );
+
+  const allData = useSelector(({ AllAnime }) => AllAnime);
+  console.log({ allData });
+
   const years = useSelector(({ AllAnime }) =>
     AllAnime.map(({ seasonYear }) => seasonYear)
       .filter((year, i, arr) => arr.indexOf(year) === i)
@@ -62,17 +66,29 @@ function App() {
     <div className="App ">
       <div className="container">
         <NavBar />
-        <div className="filter-container">
-          <FilterBox title="All" handleClick={handleAllData} />
-          <Select title="Year" options={years} handleClick={handleYear} />
-          <Select title="Gengres" options={genres} handleClick={handleGenres} />
-        </div>
-
-        <div className=" mt-10 overflow-auto h-full pb-[18rem]">
-          {years.map((data, index) => (
-            <AnimeMovies key={`index${index}`} date={data} />
-          ))}
-        </div>
+        {allData.length !== 0 ? (
+          <>
+            {" "}
+            <div className="filter-container">
+              <FilterBox title="All" handleClick={handleAllData} />
+              <Select title="Year" options={years} handleClick={handleYear} />
+              <Select
+                title="Gengres"
+                options={genres}
+                handleClick={handleGenres}
+              />
+            </div>
+            <div className=" mt-10 overflow-auto h-full pb-[18rem]">
+              {years.map((data, index) => (
+                <AnimeMovies key={`index${index}`} date={data} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="flex justify-center items-center h-[100vh]">
+            <img src="/Loading_icon.gif" alt="" />
+          </div>
+        )}
       </div>
     </div>
   );
