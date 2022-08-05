@@ -5,7 +5,7 @@ const Select = ({ title, options, handleClick }) => {
     <select
       name=""
       id=""
-      className="p-4 rounded-sm  outline-none bg-slate-200 cursor-pointer"
+      className="p-2 rounded-sm  outline-none bg-slate-200 cursor-pointer"
       onChange={(e) => {
         e.preventDefault();
         handleClick(e.currentTarget.value);

@@ -17,7 +17,7 @@ const AnimeCard = ({
           <img src={medium} alt="" className=" w-full object-contain" />
         </div>
         <div className="">
-          {<h1 className="text-[30px] text-[#ed6060]">{romaji}</h1>}
+          {<h1 className="text-[16px] text-[#ed6060]">{romaji}</h1>}
           <div className="flex gap-4 mt-3">
             <div>
               <span>

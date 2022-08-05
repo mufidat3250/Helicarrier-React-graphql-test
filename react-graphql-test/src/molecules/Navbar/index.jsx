@@ -5,7 +5,7 @@ import "./NavBar.scss";
 const NavBar = () => {
   return (
     <div className="Nav">
-      <Input />
+      <p className="italic font-bold text-[30px]">Animies</p> <Input />
     </div>
   );
 };
